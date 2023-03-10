@@ -40,3 +40,17 @@ fig_3 <- (ggplot(data = week7_tbl, aes(x = q1, y = q2)) +
   labs(x = "Score on Q1", y = "Score on Q2")) %>%
   ggsave("../figs/fig3.png", ., width = 10, height = 5)
 
+fig_4 <- (ggplot(data = week7_tbl, aes(x = gender, y = timeSpent)) +
+  geom_boxplot() + 
+  labs(x = "Gender", y = "Time Elapsed (mins)")) %>%
+  ggsave("../figs/fig4.png", ., width = 10, height = 5)
+
+
+fig_5 <- (ggplot(data = week7_tbl, aes(x = q5, y = q7, color = condition)) +
+  geom_point() +
+  geom_jitter() +
+  labs(x = "Score on Q5", y = "Score on Q7") +
+  guides(color = guide_legend(title = "Experimental Condition")) +
+  theme(legend.position = "bottom", legend.background = element_rect(fill = "lightgray")) +
+  geom_smooth(method = "lm", se = FALSE)) %>%
+  ggsave("../figs/fig5.png", ., width = 10, height = 5)
