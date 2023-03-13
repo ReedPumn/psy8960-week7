@@ -32,11 +32,13 @@ fig_2 <- (ggplot(data = week7_tbl, aes(x = q1, y = q2, color = gender)) +
             geom_jitter()  +
             guides(color = guide_legend(title = "Participant Gender"))) %>%
   ggsave("../figs/fig2.png", ., width = 1920, height = 1080, units = "px")
+
 fig_3 <- (ggplot(data = week7_tbl, aes(x = q1, y = q2)) +
             geom_jitter() +
             facet_grid(cols = vars(gender)) + 
             labs(x = "Score on Q1", y = "Score on Q2")) %>%
   ggsave("../figs/fig3.png", ., width = 1920, height = 1080, units = "px")
+
 
 fig_4 <- (ggplot(data = week7_tbl, aes(x = gender, y = timeSpent)) +
             geom_boxplot() + 
